@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="EventTracker" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="Release/EventTracker.dbp" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-std=c++14" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% dbridge_lib_plugin --cflags`" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% libDataStructs --cflags`" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% libTransTools --cflags`" />
+					<Add option="-DBUILD_DLL" />
+					<Add directory="../data/gui" />
+					<Add directory="../data/memory" />
+					<Add directory="../data" />
+					<Add directory="../plugmanager" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% dbridge_lib_plugin --libs`" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% libDataStructs --libs`" />
+					<Add option="`pkg-config --define-variable=onprefix=%OnControlDev:c:\=/% libTransTools --libs`" />
+					<Add library="user32" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="deploy.cmd" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="`pkg-config --cflags gtkmm-3.0 libxml++-3.0`" />
+			<Add option="-DEVENTTRACKERBANK_EXPORTS" />
+			<Add directory="../data" />
+			<Add directory="../data/gui" />
+			<Add directory="../data/memory" />
+		</Compiler>
+		<Linker>
+			<Add option="`pkg-config --libs gtkmm-3.0 libxml++-3.0`" />
+		</Linker>
+		<Unit filename="../data/EventTracker.cpp" />
+		<Unit filename="../data/EventTracker.h" />
+		<Unit filename="../data/EventTrackerCalc.cpp" />
+		<Unit filename="../data/EventTrackerCalc.h" />
+		<Unit filename="../data/gui/EventTrackerUI.cpp" />
+		<Unit filename="../data/gui/EventTrackerUI.h" />
+		<Unit filename="../data/memory/EventTrackerMemory.cpp" />
+		<Unit filename="../data/memory/EventTrackerMemory.h" />
+		<Unit filename="../data/memory/MemoryDefinitions.h" />
+		<Unit filename="../plugmanager/Plugin.cpp" />
+		<Unit filename="../plugmanager/Plugin.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
